@@ -6,7 +6,7 @@ In this paper, we explore the spatial redundancy in video recognition with the a
 
 
 <p align="center">
-    <img src="./figure/intro.png" width= "600">
+    <img src="./figure/intro.png" width= "500">
 </p>
 
 
