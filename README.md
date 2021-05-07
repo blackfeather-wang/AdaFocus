@@ -6,7 +6,7 @@ In this paper, we explore the spatial redundancy in video recognition with the a
 
 
 <p align="center">
-    <img src="./figure/intro.png" width= "300">
+    <img src="./figure/intro.png" width= "600">
 </p>
 
 
@@ -15,19 +15,19 @@ In this paper, we explore the spatial redundancy in video recognition with the a
 - ActivityNet
 
 <p align="center">
-    <img src="./figure/actnet.png" width= "350">
+    <img src="./figure/actnet.png" width= "700">
 </p>
 
 
 - Something-Something V1&V2
 
 <p align="center">
-    <img src="./figure/sthsth.png" width= "500">
+    <img src="./figure/sthsth.png" width= "900">
 </p>
 
 
 - Visualization
 
 <p align="center">
-    <img src="./figure/Visualization.png" width= "500">
+    <img src="./figure/Visualization.png" width= "900">
 </p>
