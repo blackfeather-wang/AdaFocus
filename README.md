@@ -29,5 +29,5 @@ In this paper, we explore the spatial redundancy in video recognition with the a
 - Visualization
 
 <p align="center">
-    <img src="./figure/Visualization.png" width= "900">
+    <img src="./figure/visualization.png" width= "900">
 </p>
