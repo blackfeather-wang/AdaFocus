@@ -15,7 +15,7 @@ In this paper, we explore the spatial redundancy in video recognition with the a
 - ActivityNet
 
 <p align="center">
-    <img src="./figure/actnet.png" width= "700">
+    <img src="./figure/actnet.png" width= "600">
 </p>
 
 
