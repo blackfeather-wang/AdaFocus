@@ -1,0 +1,71 @@
+dataset: actnet
+train_list:
+val_list:
+root_path:
+data_dir: 
+resume:
+
+pretrained_glancer: 
+pretrained_focuser: 
+train_stage: 
+
+pretrain_glancer: true
+arch: resnet
+num_segments: 16
+k: 3
+dropout: 0.5
+num_classes: 200
+evaluate: false
+eval_freq: 5
+
+dense_sample: false
+partial_fcvid_eval: false
+partial_ratio: 0.2
+ada_reso_skip: false
+reso_list: 224
+random_crop: false
+center_crop: false
+ada_crop_list:
+rescale_to: 224
+policy_input_offset: 0
+save_meta: false
+
+epochs: 50
+batch_size: 64
+backbone_lr: 0.01
+fc_lr: 0.005
+lr_type: cos # support step or cos
+lr_steps: 50-100
+momentum: 0.9
+weight_decay: 0.0001
+clip_grad: 20
+npb: true
+
+input_size: 224
+patch_size: 96
+glance_size: 224
+random_patch: false
+feature_map_channels: 1280
+action_dim: 49
+hidden_state_dim: 1024 #for policy network, focuser
+policy_conv: true
+hidden_dim: 1024 #for gru
+penalty: 0.5
+consensus: gru
+reward: random
+gamma: 0.7
+policy_lr: 0.0003
+with_glancer: true
+continuous: false
+
+seed: 1007
+gpus: 0
+gpu: 
+workers: 16
+world_size: 1
+rank: 0
+dist_url: tcp://127.0.0.1:8888
+dist_backend: nccl
+multiprocessing_distributed: true
+distributed:
+amp: true
