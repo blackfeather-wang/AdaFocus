@@ -1,4 +1,4 @@
-# AdaFocus (ICCV 2021)
+# AdaFocus (ICCV-2021 Oral)
 
 This repo contains the official code and pre-trained models for AdaFocus.
 
