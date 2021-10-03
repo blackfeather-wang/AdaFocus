@@ -59,7 +59,7 @@ In this paper, we explore the spatial redundancy in video recognition with the a
 2. Download videos from following links, or contact the corresponding authors for the access. Save them to `PATH_TO_DATASET/videos`
 - [ActivityNet-v1.3](http://activity-net.org/download.html) 
 - [FCVID](https://drive.google.com/drive/folders/1cPSc3neTQwvtSPiVcjVZrj0RvXrKY5xj)
-- [Mini-Kinetics](https://deepmind.com/research/open-source/kinetics). Please download [Kinetics 400](https://storage.googleapis.com/deepmind-media/Datasets/kinetics400.tar.gz), for Mini-Kinetics used in our paper, you need to use the train/val splits file.
+- [Mini-Kinetics](https://deepmind.com/research/open-source/kinetics). Please download [Kinetics 400](https://storage.googleapis.com/deepmind-media/Datasets/kinetics400.tar.gz). For Mini-Kinetics used in our paper, you need to use the train/val splits file from [AR-Net](https://github.com/mengyuest/AR-Net#dataset-preparation).
 3. Extract frames using [ops/video_jpg.py](ops/video_jpg.py), the frames will be saved to `PATH_TO_DATASET/frames`. Minor modifications on file path are needed when extracting frames from different dataset.
 
 
