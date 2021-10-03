@@ -8,11 +8,11 @@ This repo contains the official code and pre-trained models for AdaFocus.
 If you find our code or paper useful for your research, please cite:
 ```
 @InProceedings{Wang_2021_ICCV,
-author = {Wang, Yulin and Chen, Zhaoxi and Jiang, Haojun and Song, Shiji and Han, Yizeng and Huang, Gao},
-title = {Adaptive Focus for Efficient Video Recognition},
-booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
-month = {October},
-year = {2021}
+    author = {Wang, Yulin and Chen, Zhaoxi and Jiang, Haojun and Song, Shiji and Han, Yizeng and Huang, Gao},
+     title = {Adaptive Focus for Efficient Video Recognition},
+ booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+     month = {October},
+      year = {2021}
 }
 ```
 
