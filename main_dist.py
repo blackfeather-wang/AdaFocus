@@ -281,7 +281,7 @@ def main_worker(gpu, ngpus_per_node, args):
                         'glancer': model.glancer.state_dict(),
                         'focuser': model.focuser.state_dict(),
                         'fc': model.classifier.state_dict(),
-                        'scaler': scaler.state_dict(),
+                        'scaler': scaler.state_dict() if scaler else None,
                         'policy': model.focuser.policy.policy.state_dict() if not args.random_patch else None,
                         'acc': acc1, 
                         'best_acc': best_acc1,
@@ -293,7 +293,7 @@ def main_worker(gpu, ngpus_per_node, args):
                         'glancer': model.module.glancer.state_dict(),
                         'focuser': model.module.focuser.state_dict(),
                         'fc': model.module.classifier.state_dict(),
-                        'scaler': scaler.state_dict(),
+                        'scaler': scaler.state_dict() if scaler else None,
                         'policy': model.module.focuser.policy.policy.state_dict() if not args.random_patch else None,
                         'acc': acc1, 
                         'best_acc': best_acc1,
@@ -315,6 +315,8 @@ def validate(val_loader, model, criterion, args):
     logs = []
     # switch to evaluate mode
     model.eval()
+    if args.evaluate:
+        set_all_seeds(args.seed)
 
     for eval_time in range(1):
         all_results = []
@@ -396,7 +398,6 @@ def validate(val_loader, model, criterion, args):
         logs.append('mAP: {mAP:.5f}\n'.format(mAP=meanAP.avg))
         print(' * Acc@1 {top1.avg:.5f} Acc@5 {top5.avg:.5f} mAP {meanAP.avg:.5f}'.format(top1=top1, top5=top5, meanAP=meanAP))
         
-        #FIXME: all_local_result indexing
         if args.train_stage == 3:
             for i in range(args.num_segments):
                 if args.dataset == 'fcvid':
