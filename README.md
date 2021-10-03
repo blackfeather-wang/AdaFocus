@@ -64,15 +64,18 @@ In this paper, we explore the spatial redundancy in video recognition with the a
 
 
 
-## Pre-trained Models
+## Pre-trained Models on ActivityNet
 
 Please download pretrained weights and checkpoints from [Google Drive](https://drive.google.com/drive/folders/1v5UnucCr2CjmH41HEJePPI2WtDO8SSsp?usp=sharing).
 
 - globalcnn.pth.tar: pretrained weights for global CNN (MobileNet-v2).
 - localcnn.pth.tar: pretrained weights for local CNN (ResNet-50).
 - 128checkpoint.pth.tar: checkpoint of stage 1 for patch size 128x128.
-- 160checkpoint.pth.tar: checkpoint of stage 1 for patch size 160x128.
-- 192checkpoint.pth.tar: checkpoint of stage 1 for patch size 192x128.
+- 160checkpoint.pth.tar: checkpoint of stage 1 for patch size 160x160.
+- 192checkpoint.pth.tar: checkpoint of stage 1 for patch size 192x192.
+- 128s3_checkpoint.pth.tar: checkpoint to reproduce result in paper for patch size 128x128.
+- 160s3_checkpoint.pth.tar: checkpoint to reproduce result in paper for patch size 160x160.
+- 192s3_checkpoint.pth.tar: checkpoint to reproduce result in paper for patch size 192x192.
  
 ## Training
 
@@ -103,7 +106,13 @@ CUDA_VISIBLE_DEVICES=0 python main_dist.py dataset=actnet data_dir=PATH_TO_DATAS
 
 - Training stage 3, a stage-2 checkpoint is required:
 ```
-CUDA_VISIBLE_DEVICES=0,1 python main_dist.py dataset=actnet data_dir=PATH_TO_DATASET train_stage=3 batch_size=64 workers=8 dropout=0.8 lr_type=cos backbone_lr=0.0005 fc_lr=0.005 epochs=10 random_patch=false patch_size=128 glance_size=224 action_dim=49 eval_freq=5 consensus=gru hidden_dim=1024 resume=PATH_TO_CHECKPOINTS multiprocessing_distributed=false distributed=false
+CUDA_VISIBLE_DEVICES=0 python main_dist.py dataset=actnet data_dir=PATH_TO_DATASET train_stage=3 batch_size=64 workers=8 dropout=0.8 lr_type=cos backbone_lr=0.0005 fc_lr=0.005 epochs=10 random_patch=false patch_size=128 glance_size=224 action_dim=49 eval_freq=5 consensus=gru hidden_dim=1024 resume=PATH_TO_CHECKPOINTS multiprocessing_distributed=false distributed=false
+```
+
+## Evaluate Pre-trained Models
+- Here we take evaluating model with patch size 128x128 on ActivityNet dataset for example.
+```
+CUDA_VISIBLE_DEVICES=0 python main_dist.py dataset=actnet data_dir=PATH_TO_DATASET train_stage=3 batch_size=64 workers=8 dropout=0.8 lr_type=cos backbone_lr=0.0005 fc_lr=0.005 epochs=10 random_patch=false patch_size=128 glance_size=224 action_dim=49 eval_freq=5 consensus=gru hidden_dim=1024 resume=PATH_TO_CHECKPOINTS multiprocessing_distributed=false distributed=false evaluate=true
 ```
 
 ## Contact
