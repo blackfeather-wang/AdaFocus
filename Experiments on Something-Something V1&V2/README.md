@@ -24,7 +24,7 @@ Please download pre-trained weights and checkpoints from [Google Drive](https://
 
 - Here we take training the model with patch size 144x144 on Something-Something-V1 dataset for example.
 - All logs and checkpoints will be saved in the directory: `./outputs/YYYY-MM-DD/HH-MM-SS`
-- Note that we store a set of default hyper-parameters in [conf/default.yaml](conf/default.yaml) which can be overrided through command line. You can also use your own config files.
+- Note that we store a set of default hyper-parameters for each stage in [conf directory](conf) which can be overrided through command line. You can also use your own config files.
 
 - Before training, please initialize Global CNN and Local CNN by fine-tuning the ImageNet pre-trained models in Pytorch using the following command:
 
@@ -47,7 +47,6 @@ For Local CNN: please use the [TSM code](https://github.com/mit-han-lab/temporal
 
 - Training stage 1, we provide the command in train_stage1.sh. The pre-trained weights for Global CNN and Local CNN are required, so you should set the pretrained_glancer and pretrained_focuser arguments both right in train_stage1.sh first and then run it:
 ```
-cd sth-sth
 bash train_stage1.sh
 ```
 
