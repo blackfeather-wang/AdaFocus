@@ -7,7 +7,7 @@
 - [hydra](https://hydra.cc/docs/intro/) 1.1.0
 
 ## Datasets
-Please follow the instruction of [TSM](https://github.com/mit-han-lab/temporal-shift-module#data-preparation) to process the Something-Something V1/V2 dataset.
+Please follow the instruction of [TSM](https://github.com/mit-han-lab/temporal-shift-module#data-preparation) to prepare the Something-Something V1/V2 dataset.
 
 ## Pre-trained Models on Something-Something-V1 (V2)
 

@@ -7,7 +7,7 @@
 - [hydra](https://hydra.cc/docs/intro/) 1.1.0
 
 ## Datasets
-1. Please get train/test splits file for each dataset from [Google Drive](https://drive.google.com/drive/folders/1L41U4mczsrnwiSx3KiY57BblrRE5fjnU?usp=sharing) and put them in `PATH_TO_DATASET`.
+1. Please get the train/test split files for each dataset from [Google Drive](https://drive.google.com/drive/folders/1L41U4mczsrnwiSx3KiY57BblrRE5fjnU?usp=sharing) and put them in `PATH_TO_DATASET`.
 2. Download videos from following links, or contact the corresponding authors for the access. Save them to `PATH_TO_DATASET/videos`
 - [ActivityNet-v1.3](http://activity-net.org/download.html) 
 - [FCVID](https://drive.google.com/drive/folders/1cPSc3neTQwvtSPiVcjVZrj0RvXrKY5xj)
@@ -34,7 +34,6 @@ Please download pre-trained weights and checkpoints from [Google Drive](https://
 - Here we take training the model with patch size 128x128 on ActivityNet dataset for example.
 - All logs and checkpoints will be saved in the directory: `./outputs/YYYY-MM-DD/HH-MM-SS`
 - Note that we store a set of default hyper-parameters in [conf/default.yaml](conf/default.yaml) which can be overrided through command line. You can also use your own config files.
-
 - Before training, please initialize Global CNN and Local CNN by fine-tuning the ImageNet pre-trained models in Pytorch using the following command:
 
 for Global CNN:
@@ -62,11 +61,11 @@ CUDA_VISIBLE_DEVICES=0 python main_dist.py dataset=actnet data_dir=PATH_TO_DATAS
 ```
 
 ## Evaluate Pre-trained Models
-- Here we take evaluating model with patch size 128x128 on ActivityNet dataset for example.
+- Here we take evaluating model with patch size 128x128 on ActivityNet for example.
 ```
 CUDA_VISIBLE_DEVICES=0 python main_dist.py dataset=actnet data_dir=PATH_TO_DATASET train_stage=3 batch_size=64 workers=8 dropout=0.8 lr_type=cos backbone_lr=0.0005 fc_lr=0.005 epochs=10 random_patch=false patch_size=128 glance_size=224 action_dim=49 eval_freq=5 consensus=gru hidden_dim=1024 resume=PATH_TO_CHECKPOINTS multiprocessing_distributed=false distributed=false evaluate=true
 ```
 
 
 ## Acknowledgement
-We use implementation of MobileNet-v2 and ResNet from [Pytorch source code](https://pytorch.org/vision/stable/_modules/torchvision/models/mobilenetv2.html). We also borrow some codes for dataset preparation from [AR-Net](https://github.com/mengyuest/AR-Net#dataset-preparation) and PPO from [here](https://github.com/nikhilbarhate99/PPO-PyTorch/blob/master/PPO.py).
+We use the implementation of MobileNet-v2 and ResNet from [Pytorch source code](https://pytorch.org/vision/stable/_modules/torchvision/models/mobilenetv2.html). We also borrow some codes for dataset preparation from [AR-Net](https://github.com/mengyuest/AR-Net#dataset-preparation) and PPO from [here](https://github.com/nikhilbarhate99/PPO-PyTorch/blob/master/PPO.py).
