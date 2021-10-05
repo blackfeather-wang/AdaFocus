@@ -1,24 +1,16 @@
-'''
-Description: 
-Author: Zhaoxi Chen
-Github: https://github.com/FrozenBurning
-Date: 2020-12-12 10:16:51
-LastEditors: Zhaoxi Chen
-LastEditTime: 2020-12-17 17:13:22
-'''
-from PIL.Image import Image
+import torch
 from torch import nn
-from ops.transforms import *
-from .utils import random_crop, get_patch
+import torchvision
+from PIL.Image import Image
 from .ppo import PPO, Memory
 from .ppo_continuous import PPO_Continuous
-import torchvision
-
+from .utils import random_crop, get_patch
+from ops.transforms import *
 from ops.basic_ops import ConsensusModule
 from ops.temporal_shift import TemporalShift
 
 from .tsn import TSN
-from .mobilenet_v2_tsm import mobilenet_v2, InvertedResidual
+from .mobilenetv2 import mobilenet_v2, InvertedResidual
 
 
 class GFV(nn.Module):

@@ -2,3 +2,4 @@ outputs/
 *.tar
 Experiments on ActivityNet, FCVID and Mini-Kinetics/.DS_Store
 .idea
+.pyc
