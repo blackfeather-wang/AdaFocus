@@ -4,6 +4,7 @@ import basic_tools.checkpoint as checkpoint
 
 import sys
 import os
+from omegaconf import DictConfig, OmegaConf
 
 def start(args):
     # checkpoint.init_checkpoint()
@@ -15,5 +16,5 @@ def start(args):
     print(f"{cmd_line}")
     print(f"Working dir: {os.getcwd()}")
 
-    print(args.pretty())
-    return args.pretty()
+    print(OmegaConf.to_yaml(args))
+    return OmegaConf.to_yaml(args)
