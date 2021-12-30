@@ -4,7 +4,7 @@ This repo contains the official code and pre-trained models for AdaFocus.
 
 - [Adaptive Focus for Efficient Video Recognition](http://arxiv.org/abs/2105.03245)
 
-**Our [AdaFocusV2](https://github.com/LeapLabTHU/AdaFocusV2) has been released! End-to-End trainable, much easier to implement, less than 50% training cost, but with significantly stronger performance.**
+- **Our [AdaFocusV2](https://github.com/LeapLabTHU/AdaFocusV2) has been released! End-to-End trainable, much easier to implement, less than 50% training cost, but with significantly stronger performance.**
 
 ## Reference
 If you find our code or paper useful for your research, please cite:
