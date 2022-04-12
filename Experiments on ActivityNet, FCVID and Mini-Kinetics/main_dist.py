@@ -32,7 +32,7 @@ from models.gfv_net import GFV
 best_acc1 = 0
 
 # Use hydra to maintain configuration and parse arguments in an elegant way.
-@hydra.main(config_path="conf/default.yaml", strict=True)
+@hydra.main(config_path="conf", config_name="default")
 def main(args):
     config_yaml = basic_tools.start(args)
 

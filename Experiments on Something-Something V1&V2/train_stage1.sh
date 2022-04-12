@@ -1,0 +1,24 @@
+CUDA_VISIBLE_DEVICES=0,1,2,3 python stage1.py \
+  dataset=somethingv1 \
+  data_dir=PATH_TO_DATASET \
+  train_stage=1 \
+  batch_size=64 \
+  num_segments_glancer=8 \
+  num_segments_focuser=12 \
+  glance_size=224 \
+  patch_size=144 \
+  random_patch=True \
+  epochs=10 \
+  backbone_lr=0.00001 \
+  fc_lr=0.01 \
+  lr_type=cos \
+  dropout=0.5 \
+  load_pretrained_focuser_fc=False \
+  dist_url=tcp://127.0.0.1:8816 \
+  eval_freq=1 \
+  start_eval=0 \
+  print_freq=25 \
+  workers=8 \
+  pretrained_glancer=PATH_TO_PRETRAINED_GLANCER \
+  pretrained_focuser=PATH_TO_PRETRAINED_FOCUSER # load the pretrained model
+

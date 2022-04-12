@@ -1,0 +1,95 @@
+hydra:
+  run:
+    dir: ./outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+
+dataset: somethingv1
+train_list:
+val_list:
+root_path:
+data_dir: PATH_TO_DATASET
+resume:
+
+pretrained_s2:
+load_pretrained_s2_fc: true
+pretrained_glancer:
+pretrained_focuser:
+
+train_stage: 3
+# 1-pretrain, 2-train policy, 3-pretrain backbone on high-resolution video, 4-finetune
+pretrain_glancer: true
+arch: resnet
+k: 3
+dropout: 0.5
+num_classes: 174
+evaluate: false
+eval_freq: 5
+start_eval: 0
+print_freq: 100
+
+# tsn params
+video_div: 1
+num_segments_glancer: 8
+num_segments_focuser: 12
+modality: RGB
+base_model: resnet50
+partial_bn: false
+pretrain: imagenet
+is_shift: true
+shift_div: 8
+shift_place: blockres
+fc_lr5: false
+temporal_pool: false
+non_local: false
+
+dense_sample: false
+partial_fcvid_eval: false
+partial_ratio: 0.2
+ada_reso_skip: false #TODO:
+reso_list: 224
+random_crop: false
+center_crop: false
+ada_crop_list:
+rescale_to: 224
+policy_input_offset: 0
+save_meta: false
+
+epochs: 50
+batch_size: 64
+backbone_lr: 0.01
+fc_lr: 0.005
+policy_lr: 0.0003
+lr_type: step
+lr_steps: 50-100
+momentum: 0.9
+weight_decay: 0.0001
+clip_grad: 20
+npb: true
+
+patch_size: 160
+glance_size: 224
+random_patch: false
+feature_map_channels: 1280
+action_dim: 25
+hidden_state_dim: 1024 #for policy network, focuser
+policy_conv: true
+hidden_dim: 1024 #for LSTM classifier
+penalty: 0.5
+consensus: lstm
+ppo_continuous: true
+dropout_lstm: false
+gamma: 0.7 #for ppo
+with_glancer: true
+action_std: 0.1
+actorcritic_with_bn: true
+
+seed: 1007
+gpus: 0
+gpu:
+workers: 16
+world_size: 1
+rank: 0
+dist_url: tcp://127.0.0.1:8822
+dist_backend: nccl
+multiprocessing_distributed: true
+distributed:
+amp: true
